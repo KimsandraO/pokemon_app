@@ -3,6 +3,7 @@ const express = require("express");
 const cors = require("cors");
 const connectDB = require("./config/db");
 const pokemonsRouter = require("./routes/pokemons");
+const errorHandler = require("./middlewares/errorHandler");
 const path = require("path");
 const PORT = process.env.PORT || 9000;
 const app = express();
@@ -15,7 +16,7 @@ if (process.env.NODE_ENV === "production") {
   app.use(express.static(buildpath));
 
   app.get("*", (req, res) => {
-    res.sendFile(path.join(buildPath, "index.html"));
+    res.sendFile(path.join(buildpath, "index.html"));
   });
 }
 

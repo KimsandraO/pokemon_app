@@ -1,62 +1,51 @@
 const Pokemon = require("../models/pokemon");
+const ErrorResponse = require("../utils/errorResponse");
 
-const createPokemon = async (req, res) => {
+const createPokemon = async (req, res, next) => {
   try {
     const newPokemon = await Pokemon.create(req.body);
     res.status(201).json(newPokemon);
   } catch (error) {
-    res.status(400).json({ message: error.message });
+    next(new ErrorResponse(error));
   }
 };
 
-const getAllPokemon = async (req, res) => {
+const getAllPokemon = async (req, res, next) => {
   try {
     const pokemons = await Pokemon.find();
     res.json(pokemons);
   } catch (error) {
-    res.status(500).json({ message: error.message });
+    next(new ErrorResponse(error));
   }
 };
 
-const getPokemonById = async (req, res) => {
-  try {
-    const pokemons = await Pokemon.find({ _id: req.params.id });
-    if (pokemons.length === 0) {
-      res.status(500).json({ message: "Pokemon not found" });
-    }
-    res.json(pokemons[0]);
-  } catch (error) {
-    res.status(500).json({ message: error.message });
-  }
+const getPokemonById = async (req, res, next) => {
+  res.json(req.reqUser);
 };
 
-const updatePokemon = async (req, res) => {
+const updatePokemon = async (req, res, next) => {
   try {
     const updatedPokemon = await Pokemon.findOneAndUpdate(
       { _id: req.params.id },
       req.body,
-      { new: true }
+      { new: true, runValidators: true }
     );
-    if (!updatedPokemon) {
-      res.status(500).json({ message: "Pokemon not able to update" });
-    }
+
     res.json(updatedPokemon);
   } catch (error) {
-    res.status(500).json({ message: error.message });
+    next(new ErrorResponse(error));
   }
 };
 
-const deletePokemon = async (req, res) => {
+const deletePokemon = async (req, res, next) => {
   try {
     const deletedPokemon = await Pokemon.findOneAndDelete({
       _id: req.params.id,
     });
-    if (!deletedPokemon) {
-      res.status(500).json({ message: "Pokemon not deleted" });
-    }
+
     res.json(deletedPokemon);
   } catch (error) {
-    res.status(500).json({ message: error.message });
+    next(new ErrorResponse(error));
   }
 };
 

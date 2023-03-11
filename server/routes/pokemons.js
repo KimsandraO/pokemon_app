@@ -8,10 +8,11 @@ const {
   getPokemonById,
 } = require("../controllers/Pokemons");
 
+const pokemonFinder = require("../middlewares/pokemonFinder");
 router.get("/", getAllPokemon);
-router.get("/:id", getPokemonById);
+router.get("/:id", pokemonFinder, getPokemonById);
 router.post("/", createPokemon);
-router.put("/:id", updatePokemon);
-router.delete("/:id", deletePokemon);
+router.put("/:id", pokemonFinder, updatePokemon);
+router.delete("/:id", pokemonFinder, deletePokemon);
 
 module.exports = router;
