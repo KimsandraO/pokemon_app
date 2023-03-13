@@ -27,6 +27,7 @@ function App() {
           />
           <Route path="/Pokemons/api/pokemons" element={<PokemonsApi />} />
         </Routes>
+        <AddForm />
       </main>
 
       <Footer />
