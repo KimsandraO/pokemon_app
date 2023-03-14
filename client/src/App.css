@@ -7,6 +7,89 @@
   pointer-events: none;
 }
 
+.blue-bg {
+  background-color: #2A72B8;
+}
+
+.yellow-bg {
+  background-color: #FFCB05;
+}
+
+.darkblue-bg {
+  background-color: #153E65;
+}
+
+.lightgray-bg {
+  background-color: #E5E5E5;
+}
+
+.pokemon-card {
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+
+}
+
+.type-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.type-pokemon {
+  border: 1px solid #2A72B8;
+  border-radius: 5px;
+  padding: 1rem;
+}
+
+.header-card {
+  border-radius: 5px 5px 0 0;
+}
+
+.body-card h4 {
+  text-align: left;
+  color: #2A72B8;
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+.thumbnail {
+  max-width: 160px;
+  margin: 2rem 0;
+}
+
+.body-card p {
+  display: grid;
+
+}
+
+.body-card p span {
+  font-weight: 900;
+  text-align: left;
+  color: #2A72B8;
+  padding: 0rem .5rem .0rem .0rem;
+}
+
+.button-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 56px;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 900;
+  color: #2A72B8;
+  font-size: 1.2rem;
+  text-decoration: none;
+  border-radius: 0 0 5px 5px
+}
+
+.bottom-details {
+  height: 10px;
+  border-radius: 0 0 5px 5px;
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;

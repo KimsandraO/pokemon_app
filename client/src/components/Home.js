@@ -1,7 +1,10 @@
 import React from "react";
+import PokemonResults from "../components/PokemonsResults";
 
 function Home() {
-  return <div>Home Page</div>;
+  return <div>
+          <PokemonResults />
+        </div>;
 }
 
 export default Home;

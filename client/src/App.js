@@ -9,6 +9,7 @@ import UpdatePokemons from "./components/UpdatePokemons";
 import PokemonsApi from "./components/PokemonsApi";
 import Footer from "./components/Footer";
 import { Routes, Route } from "react-router-dom";
+import PokemonsResults from "./components/PokemonsResults";
 
 function App() {
   return (
@@ -18,7 +19,7 @@ function App() {
       <main>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/OurPokemons" element={<PokemonsCards />} />
+          <Route path="/OurPokemons" element={<PokemonsResults />} />
           <Route path="/pokemons/new" element={<AddForm />} />
           <Route path="/pokemons/:pokemon_id" element={<PokemonDetails />} />
           <Route
