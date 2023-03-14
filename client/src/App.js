@@ -15,7 +15,6 @@ function App() {
   return (
     <div className="App">
       <Header />
-
       <main>
         <Routes>
           <Route path="/" element={<Home />} />
@@ -29,7 +28,6 @@ function App() {
           <Route path="/Pokemons/api/pokemons" element={<PokemonsApi />} />
         </Routes>
       </main>
-
       <Footer />
     </div>
   );

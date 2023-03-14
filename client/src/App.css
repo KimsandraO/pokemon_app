@@ -119,3 +119,51 @@
     transform: rotate(360deg);
   }
 }
+
+.blue-color {
+  background-color: #2a72b8;
+  font-family: sans-serif;
+  color: white;
+  text-align: start;
+  font-weight: bold;
+  font-size: 24px;
+  padding: 18px;
+}
+.blue1-color {
+  background-color: #2a72b8;
+  font-family: sans-serif;
+  color: white;
+  text-align: start;
+  font-weight: bold;
+  font-size: 24px;
+  padding: 12px;
+}
+
+.yellow-color {
+  background-color: #ffcb05;
+  font-family: sans-serif;
+  color: #2a72b8;
+  text-align: start;
+  font-weight: 400;
+  font-size: 18px;
+}
+
+.gray-color {
+  background-color: rgb(223, 211, 211);
+  font-family: sans-serif;
+  color: #2a72b8;
+  text-align: start;
+  font-weight: 400;
+  font-size: 18px;
+}
+.form-textarea {
+  border-radius: 25px;
+  border: 1px solid #2a72b8;
+  padding: 10px;
+  width: 540px;
+  height: 150px;
+}
+
+#addform-btn {
+  align-items: center;
+}
