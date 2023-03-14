@@ -5,19 +5,29 @@ import axios from "axios";
 
 function PokemonDetails() {
 
-  const { pokemon_id } = useParams();
+  const { id } = useParams();
   const [pokemon, setPokemon] = useState({});
   const navigate = useNavigate();
 
 
-  console.log("whaaaaaaaaat")
+  console.log(id)
 
   useEffect(() => {
     axios
-      .get(`${process.env.REACT_APP_SERVER_BASE_URL}/api/pokemons/${pokemon_id}`)
+      .get(`${process.env.REACT_APP_SERVER_BASE_URL}/api/pokemons/${id}`)
       .then((res) => setPokemon(res.data))
       .catch((e) => console.log(e));
-  }, [pokemon_id]);
+  }, [id]);
+
+
+  const handleDelete = (e) => {
+    axios
+      .delete(
+        `${process.env.REACT_APP_SERVER_BASE_URL}/api/pokemons/${e.target.value}`
+      )
+      .then((res) => navigate(`/OurPokemons`))
+      .catch((e) => console.log(e));
+  };
 
   return ( 
     <div className="container" key={pokemon?._id}>
@@ -31,7 +41,7 @@ function PokemonDetails() {
           <div className="row">
             <div className="col-6 lightgray-bg">
             <img src={pokemon?.image} alt={pokemon?.name} className="img-fluid" />
-            <p>There is a plant seed on its back right from the day this Pokémon is born. The seed slowly grows larger.</p>
+            <p>{pokemon?.description}</p>
 
             </div>
             <div className="col-6 yellow-bg p-5">
@@ -77,7 +87,34 @@ function PokemonDetails() {
                     </div>
                   </div>
               </div>
-
+            <div className="buttons mt-5">
+            <Link
+              to={`/Pokemons/update/${id}`}
+              className="btn btn-primary rounded-pill m-3"
+              type="button"
+            >
+              <span class="material-symbols-sharp">edit</span>Edit
+            </Link>
+            <button
+              className="btn btn-danger rounded-pill m-3"
+              value={pokemon?._id}
+              onClick={handleDelete}
+              type="button"
+            >
+              {" "}
+              <span class="material-symbols-sharp">delete</span>Delete
+            </button>
+          </div>
+          <div className="buttons">
+            <Link
+              to="/OurPokemons"
+              className="btn btn-secondary rounded-pill m-3"
+              type="button"
+            >
+              <span class="material-symbols-sharp">arrow_back</span>
+              Go back to Pokemons List
+            </Link>
+          </div>
             </div>
           </div>
           <div className="row bottom-details blue-bg"></div>

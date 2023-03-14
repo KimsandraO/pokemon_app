@@ -3,7 +3,7 @@ import { Link }  from "react-router-dom";
 
 function PokemonCards({name, abilities, weakness, image, id}) {
   return (
-    <div className="col-12 col-md-6 col-lg-3 mb-4">
+    <div className="col-12 col-md-6 col-lg-4 col-xl-3 mb-4">
       <div className="pokemon-card lightgray-bg p-0 m-1">
         <div className="header-card blue-bg p-1">
           <h2 className="text-white">{name}</h2>

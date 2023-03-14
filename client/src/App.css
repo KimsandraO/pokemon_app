@@ -48,6 +48,12 @@
   border-radius: 5px 5px 0 0;
 }
 
+.header-card h2 {
+  font-size: 1.2rem;
+  text-align: left;
+  padding: .75rem;
+}
+
 .body-card h4 {
   text-align: left;
   color: #2A72B8;
@@ -88,6 +94,17 @@
 .bottom-details {
   height: 10px;
   border-radius: 0 0 5px 5px;
+}
+
+
+.btn {
+  display: flex!important;
+  padding: .5rem 1rem;
+}
+
+.buttons {
+  display: flex;
+
 }
 
 @media (prefers-reduced-motion: no-preference) {
