@@ -4,8 +4,8 @@ import axios from "axios";
 import { useParams, useNavigate } from "react-router-dom";
 
 function UpdatePokemons() {
+  const { id } = useParams();
   const navigate = useNavigate();
-  const { pokemon_id } = useParams();
 
   const [pokemon, setPokemon] = useState({
     name: "",
@@ -21,12 +21,10 @@ function UpdatePokemons() {
 
   useEffect(() => {
     axios
-      .get(
-        `${process.env.REACT_APP_SERVER_BASE_URL}/api/pokemons/${pokemon_id}`
-      )
+      .get(`${process.env.REACT_APP_SERVER_BASE_URL}/api/pokemons/${id}`)
       .then((res) => setPokemon(res.data))
       .catch((e) => console.log(e));
-  }, [pokemon_id]);
+  }, [id]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -38,10 +36,10 @@ function UpdatePokemons() {
     e.preventDefault();
     axios
       .put(
-        `${process.env.REACT_APP_SERVER_BASE_URL}/api/pokemons/${pokemon_id}`,
+        `${process.env.REACT_APP_SERVER_BASE_URL}/api/pokemons/${id}`,
         pokemon
       )
-      .then((res) => navigate("/"))
+      .then((res) => navigate(`/pokemons/${id}`))
       .catch((e) => console.log(e));
   };
 
@@ -61,6 +59,7 @@ function UpdatePokemons() {
                 class="form-control rounded-pill p-2 border border-primary"
                 placeholder="Pokemon Name..."
                 onChange={handleChange}
+                name="name"
               />
               <label class="form-label mt-3">IMAGE</label>
               <input
@@ -69,6 +68,7 @@ function UpdatePokemons() {
                 class="form-control rounded-pill p-2 border border-primary"
                 placeholder="Image Link..."
                 onChange={handleChange}
+                name="image"
               />
               <label class="form-label mt-3">DESCRIPTION</label>
               <textarea
@@ -76,6 +76,7 @@ function UpdatePokemons() {
                 class="form-control form-textarea"
                 placeholder="Leave a comment here..."
                 onChange={handleChange}
+                name="description"
               ></textarea>
             </div>
           </div>
@@ -90,6 +91,7 @@ function UpdatePokemons() {
                     class="form-control rounded-pill p-2 border border-primary"
                     placeholder="ex: 2' 00"
                     onChange={handleChange}
+                    name="height"
                   />
                 </div>
               </div>
@@ -102,6 +104,7 @@ function UpdatePokemons() {
                     class="form-control rounded-pill p-2 border border-primary"
                     placeholder="ex: 18,7"
                     onChange={handleChange}
+                    name="weight"
                   />
                 </div>
               </div>
@@ -116,6 +119,7 @@ function UpdatePokemons() {
                     class="form-control rounded-pill p-2 border border-primary"
                     placeholder="type one or more"
                     onChange={handleChange}
+                    name="abilities"
                   />
                 </div>
               </div>
@@ -128,6 +132,7 @@ function UpdatePokemons() {
                     class="form-control rounded-pill p-2 border border-primary"
                     placeholder="type one or more"
                     onChange={handleChange}
+                    name="weakness"
                   />
                 </div>
               </div>
@@ -142,6 +147,7 @@ function UpdatePokemons() {
                     class="form-control rounded-pill p-2 border border-primary"
                     placeholder="type one or more"
                     onChange={handleChange}
+                    name="gender"
                   />
                 </div>
               </div>
@@ -154,6 +160,7 @@ function UpdatePokemons() {
                     class="form-control rounded-pill p-2 border border-primary"
                     placeholder="type one or more"
                     onChange={handleChange}
+                    name="type"
                   />
                 </div>
               </div>

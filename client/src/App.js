@@ -20,9 +20,9 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/OurPokemons" element={<PokemonsResults />} />
           <Route path="/pokemons/new" element={<AddForm />} />
-          <Route path="/pokemons/:pokemon_id" element={<PokemonDetails />} />
+          <Route path="/pokemons/:id" element={<PokemonDetails />} />
           <Route
-            path="/Pokemons/:pokemons_id/update"
+            path="/Pokemons/update/:id"
             element={<UpdatePokemons />}
           />
           <Route path="/Pokemons/api/pokemons" element={<PokemonsApi />} />
