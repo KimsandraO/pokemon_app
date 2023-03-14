@@ -63,7 +63,7 @@ function AddForm() {
                 value={description}
                 class="form-control form-textarea"
                 placeholder="Leave a comment here..."
-                onChange={(e) => setImage(e.target.value)}
+                onChange={(e) => setDescription(e.target.value)}
               ></textarea>
             </div>
           </div>

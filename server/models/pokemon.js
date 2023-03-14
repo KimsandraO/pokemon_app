@@ -6,7 +6,7 @@ const pokemonSchema = new mongoose.Schema(
     type: { type: Array, required: [true, "type is Required!"] },
     abilities: { type: Array, required: [true, "abilities are Required!"] },
     weakness: { type: Array, required: [true, "weakness is Required!"] },
-    description: { type: String, required: [true, "weakness is Required!"] },
+    description: { type: String, required: [true, "description is Required!"] },
     height: { type: String, required: [true, "height is Required!"] },
     weight: { type: String, required: [true, "weight is Required!"] },
     gender: { type: String, required: [true, "gender is Required!"] },
