@@ -184,3 +184,19 @@
 #addform-btn {
   align-items: center;
 }
+
+/* css footer */
+#footer {
+  background-color: #153E65;
+  color: white;
+  text-align: left;
+}
+#footer .input-group > .form-control,
+.input-group > .form-floating,
+.input-group > .form-select {
+  height: calc(3.5rem + 2px);
+}
+#footer  svg {
+  color: rgb(255, 255, 255);
+}
+/* end css footer */
