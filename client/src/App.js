@@ -11,6 +11,7 @@ import PokemonsApi from "./components/PokemonsApi";
 
 import { Routes, Route } from "react-router-dom";
 import PokemonsResults from "./components/PokemonsResults";
+import Search from "./components/Search";
 
 function App() {
   return (
