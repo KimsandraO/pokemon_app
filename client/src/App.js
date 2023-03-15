@@ -8,7 +8,7 @@ import AddForm from "./components/AddForm";
 import PokemonDetails from "./components/PokemonDetails";
 import UpdatePokemons from "./components/UpdatePokemons";
 import PokemonsApi from "./components/PokemonsApi";
-
+import Footer from "./components/Footer";
 import { Routes, Route } from "react-router-dom";
 import PokemonsResults from "./components/PokemonsResults";
 import Search from "./components/Search";
@@ -31,6 +31,7 @@ function App() {
           <Route path="/Pokemons/update/:id" element={<UpdatePokemons />} />
         </Routes>
       </main>
+      <Footer />
     </div>
   );
 }
