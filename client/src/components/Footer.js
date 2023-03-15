@@ -3,6 +3,7 @@ import Logo from "../Images/pokemon-logo.png";
 import Form from "react-bootstrap/Form";
 import InputGroup from "react-bootstrap/InputGroup";
 import Button from "react-bootstrap/Button";
+import { Link } from "react-router-dom";
 
 function Footer() {
   return (
@@ -10,8 +11,9 @@ function Footer() {
       <div className="container">
         <div className="row row-cols-1 row-cols-sm-2 row-cols-md-5 py-5 align-items-center">
           <div className="col-lg-4 col-md-8 col-xs-12 mb-3">
-           
-            <img src={Logo} alt="Logo" width="" height="" />
+           <Link to="/">
+            <img src={Logo} alt="Pokémon Logo" className="logo-footer" width="" height="" />
+            </Link>
           </div>
 
           <div className="col-lg-4 col-md-8 col-xs-12 mb-3">
@@ -21,16 +23,10 @@ function Footer() {
                 aria-label="Email address"
                 aria-describedby="basic-addon2"
               />
-              <Button variant="outline-secondary" >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="16"
-                  height="16"
-                  fill="GhostWhite"
-                  className="bi bi-send-fill"
-                  viewBox="0 0 16 16">
-                  <path d="M15.964.686a.5.5 0 0 0-.65-.65L.767 5.855H.766l-.452.18a.5.5 0 0 0-.082.887l.41.26.001.002 4.995 3.178 3.178 4.995.002.002.26.41a.5.5 0 0 0 .886-.083l6-15Zm-1.833 1.89L6.637 10.07l-.215-.338a.5.5 0 0 0-.154-.154l-.338-.215 7.494-7.494 1.178-.471-.47 1.178Z" />
-                </svg>
+              <Button variant="btn btn-warning rounded-pill" >
+              <span className="material-symbols-sharp">
+              mail
+              </span>
               </Button>
             </InputGroup>
           </div>
@@ -52,19 +48,18 @@ function Footer() {
           <div className="col-lg-4 col-md-6 col-xs-12 mb-3">
           <h4 className= "mb-4">QUICK NAVIGATION</h4>
             <ul className="nav flex-column">
-              <li className="nav-item mb-2">
+              <Link className="nav-item mb-2" to="/">
                 HOME
-              </li>
-              <li className="nav-item mb-2">
+              </Link>
+              <Link className="nav-item mb-2" to="/OurPokemons">
                 OUR POKEMONS
-              </li>
-              <li className="nav-item mb-2">
-                ADD POKEMON
-              </li>
-
-              <li className="nav-item mb-2">
-               PUBLIC POKEMONS
-              </li>
+              </Link>
+              <Link className="nav-item mb-2" to="/pokemons/new">
+                ADD NEW POKÉMON
+              </Link>
+              <Link className="nav-item mb-2" to="/Pokemons/api/pokemons">
+                PUBLIC POKÉMONS
+              </Link>
               </ul>
           </div>
 
@@ -72,19 +67,13 @@ function Footer() {
             
             <h4 className= "mb-4">ABOUT US</h4>
             <ul className="nav flex-column">
-              <li className="nav-item mb-2">
-               
-                We are a community of passionate Pokemon fans who love to discuss, share, and learn everything there is to know about the wonderful world of Pokemon.
-              </li>
-              <li className="nav-item mb-2">
-                
-                ABOUT US
-              </li>
-              <li className="nav-item mb-2">
-                
-                CONTACT US
-              </li>
 
+            <Link className="nav-item mb-2" to="/About">
+                ABOUT US
+              </Link>
+              <Link className="nav-item mb-2" to="/Contact">
+                CONTACT US
+              </Link>
              
             </ul>
           </div>
@@ -102,8 +91,8 @@ function Footer() {
                   target="_blank">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    width="45"
-                    height="45"
+                    width="30"
+                    height="30"
                     fill="currentColor"
                     className="bi bi-linkedin"
                     viewBox="0 0 16 16">
@@ -118,8 +107,8 @@ function Footer() {
                   target="_blank">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    width="45"
-                    height="45"
+                    width="30"
+                    height="30"
                     fill="currentColor"
                     className="bi bi-facebook"
                     viewBox="0 0 16 16">
@@ -133,8 +122,8 @@ function Footer() {
                   target="_blank">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    width="45"
-                    height="45"
+                    width="30"
+                    height="30"
                     fill="currentColor"
                     className="bi bi-twitter"
                     viewBox="0 0 16 16">

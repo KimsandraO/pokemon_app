@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import logo from "../Images/pokemon-logo.png";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 import InputGroup from "react-bootstrap/InputGroup";
 
@@ -11,7 +11,9 @@ class Header extends Component {
     return (
       <>
         <div id="main-header" container>
+          <Link to="/">
           <img id="main-logo" src={logo} alt="logo" />
+          </Link>
           <i className="fab fa-react"></i>
           <div className="menu-icon" onClick={this.handleClick}>
             <i
@@ -19,10 +21,10 @@ class Header extends Component {
             ></i>
           </div>
           <nav id="main-nav">
-            <Link to="/">HOME</Link>
-            <Link to="/our pokemon">OUR POKEMONS</Link>
-            <Link to="/add pokemon">ADD POKEMON</Link>
-            <Link to="/public pokemon">PUBLIC POKEMONS</Link>
+            <NavLink to="/">HOME</NavLink>
+            <NavLink to="/OurPokemons">OUR POKEMONS</NavLink>
+            <NavLink to="/pokemons/new">ADD POKEMON</NavLink>
+            <NavLink to="/Pokemons/api/pokemons">PUBLIC POKEMONS</NavLink>
           </nav>
         </div>
       </>
