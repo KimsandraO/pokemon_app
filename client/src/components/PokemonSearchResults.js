@@ -2,9 +2,12 @@ import React from "react";
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import PokemonCards from "./PokemonCards";
+import { useParams, useNavigate, Link } from "react-router-dom";
 
-function PokemonsResults() {
-
+function PokemonSearchResults({searchTerm}) {
+  const { keyword } = useParams();
+  const [updatedKeyword, setUpdatedKeyword] = useState(keyword);
+  const navigate = useNavigate();
   const [pokemons, setPokemons ] = useState([]);
   const [deleteFlag, setDeleteFlag] = useState(false);
   const [isLoadingPokemons, setIsLoadingPokemons] = useState(false);
@@ -12,8 +15,9 @@ function PokemonsResults() {
 
   useEffect(() => {
     setIsLoadingPokemons(true);
+    console.log(keyword)
     axios
-      .get(`${process.env.REACT_APP_SERVER_BASE_URL}/api/pokemons`)
+      .get(`${process.env.REACT_APP_SERVER_BASE_URL}/api/pokemons/search/${keyword}`)
       .then((res) => {
         console.log(res.data);
         setPokemons(res.data)
@@ -23,11 +27,25 @@ function PokemonsResults() {
   }, []);
 
 
+  useEffect(() => {
+    setIsLoadingPokemons(true);
+    console.log(keyword)
+    axios
+      .get(`${process.env.REACT_APP_SERVER_BASE_URL}/api/pokemons/search/${keyword}`)
+      .then((res) => {
+        console.log(res.data);
+        setPokemons(res.data)
+        setIsLoadingPokemons(false);
+      })
+      .catch((e) => console.log(e));
+  }, [keyword]);
+
+
   return  (
     <>
      <div className="container">
         <div className="row">
-          <h1 className="color-blue roboto fs-2 m-3">Welcome to our Pokemon Website</h1>
+        <h1 className="color-blue roboto fs-2 m-3">Results for "{keyword}" Pokémons</h1>
             {isLoadingPokemons ? 
             
             <div className="spinner-border text-light" role="status">
@@ -43,4 +61,4 @@ function PokemonsResults() {
   );
 }
 
-export default PokemonsResults;
+export default PokemonSearchResults;
