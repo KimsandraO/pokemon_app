@@ -11,16 +11,23 @@ import PokemonsApi from "./components/PokemonsApi";
 import Footer from "./components/Footer";
 import { Routes, Route } from "react-router-dom";
 import PokemonsResults from "./components/PokemonsResults";
+import PokemonSearchResults from "./components/PokemonSearchResults";
 import Search from "./components/Search";
+import { useEffect, useState } from "react"
 
 function App() {
+
+
+  
   return (
     <div className="App">
       <Header />
+      <Search />
       <main>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/OurPokemons" element={<PokemonsResults />} />
+          <Route path="/OurPokemons/:keyword" element={<PokemonSearchResults />} />
           <Route path="/pokemons/new" element={<AddForm />} />
           <Route path="/pokemons/publicPokemon" element={<PokemonsApi />} />
           <Route

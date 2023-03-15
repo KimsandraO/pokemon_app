@@ -50,7 +50,7 @@ function UpdatePokemons() {
       </div>
       <form onSubmit={handleSubmit}>
         <div class="row">
-          <div class="col-sm-6 gray-color">
+          <div class="col-12 col-md-6 col-lg-6 gray-color">
             <div class="mb-3 p-5">
               <label class="form-label">Name OF YOUR POKEMON</label>
               <input
@@ -80,7 +80,7 @@ function UpdatePokemons() {
               ></textarea>
             </div>
           </div>
-          <div class="col-sm-6 yellow-color">
+          <div class="col-12 col-md-6 col-lg-6 yellow-color">
             <div className="row mt-5">
               <div className="col">
                 <div class="p-1 ms-5 me-5">

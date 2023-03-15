@@ -23,6 +23,10 @@ const getPokemonById = async (req, res, next) => {
   res.json(req.reqUser);
 };
 
+const getPokemonByKeyword = async (req, res, next) => {
+  res.json(req.reqUser);
+};
+
 const updatePokemon = async (req, res, next) => {
   try {
     const updatedPokemon = await Pokemon.findOneAndUpdate(
@@ -55,4 +59,5 @@ module.exports = {
   deletePokemon,
   updatePokemon,
   getPokemonById,
+  getPokemonByKeyword,
 };
