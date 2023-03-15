@@ -8,19 +8,19 @@
 }
 
 .blue-bg {
-  background-color: #2A72B8;
+  background-color: #2a72b8;
 }
 
 .yellow-bg {
-  background-color: #FFCB05;
+  background-color: #ffcb05;
 }
 
 .darkblue-bg {
-  background-color: #153E65;
+  background-color: #153e65;
 }
 
 .lightgray-bg {
-  background-color: #E5E5E5;
+  background-color: #e5e5e5;
 }
 
 .pokemon-card {
@@ -29,7 +29,6 @@
   flex-direction: column;
   justify-content: space-between;
   height: 100%;
-
 }
 
 .type-wrapper {
@@ -39,7 +38,7 @@
 }
 
 .type-pokemon {
-  border: 1px solid #2A72B8;
+  border: 1px solid #2a72b8;
   border-radius: 5px;
   padding: 1rem;
 }
@@ -51,12 +50,12 @@
 .header-card h2 {
   font-size: 1.2rem;
   text-align: left;
-  padding: .75rem;
+  padding: 0.75rem;
 }
 
 .body-card h4 {
   text-align: left;
-  color: #2A72B8;
+  color: #2a72b8;
   font-size: 1rem;
   font-weight: 400;
 }
@@ -68,14 +67,13 @@
 
 .body-card p {
   display: grid;
-
 }
 
 .body-card p span {
   font-weight: 900;
   text-align: left;
-  color: #2A72B8;
-  padding: 0rem .5rem .0rem .0rem;
+  color: #2a72b8;
+  padding: 0rem 0.5rem 0rem 0rem;
 }
 
 .button-card {
@@ -83,12 +81,12 @@
   align-items: center;
   justify-content: center;
   height: 56px;
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
   font-weight: 900;
-  color: #2A72B8;
+  color: #2a72b8;
   font-size: 1.2rem;
   text-decoration: none;
-  border-radius: 0 0 5px 5px
+  border-radius: 0 0 5px 5px;
 }
 
 .bottom-details {
@@ -96,15 +94,58 @@
   border-radius: 0 0 5px 5px;
 }
 
-
 .btn {
-  display: flex!important;
-  padding: .5rem 1rem;
+  display: flex !important;
+  padding: 0.5rem 1rem;
 }
 
 .buttons {
   display: flex;
+}
+#main-header {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding-bottom: 2rem;
+  padding-top: 2rem;
+  text-transform: uppercase;
+  border-radius: 3px;
+  background-color: rgb(227, 223, 223);
+}
 
+#main-nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+}
+
+#main-nav a {
+  color: #2a72b8;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: bold;
+  font-family: open sans;
+  display: inline-block;
+  margin-right: 20px;
+  text-transform: uppercase;
+}
+#main-nav a:hover {
+  color: #ffcb05;
+  transition: 0.5s;
+}
+
+#main-logo {
+  height: auto;
+  width: 250px;
+  object-fit: contain;
+  justify-self: start;
+  margin-left: 20px;
+}
+@media (max-width: 952px) {
+  .main-header {
+    flex-direction: column;
+  }
 }
 
 @media (prefers-reduced-motion: no-preference) {

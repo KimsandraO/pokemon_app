@@ -10,6 +10,7 @@ import PokemonsApi from "./components/PokemonsApi";
 import Footer from "./components/Footer";
 import { Routes, Route } from "react-router-dom";
 import PokemonsResults from "./components/PokemonsResults";
+import Search from "./components/Search";
 
 function App() {
   return (
@@ -21,10 +22,7 @@ function App() {
           <Route path="/OurPokemons" element={<PokemonsResults />} />
           <Route path="/pokemons/new" element={<AddForm />} />
           <Route path="/pokemons/:id" element={<PokemonDetails />} />
-          <Route
-            path="/Pokemons/update/:id"
-            element={<UpdatePokemons />}
-          />
+          <Route path="/Pokemons/update/:id" element={<UpdatePokemons />} />
           <Route path="/Pokemons/api/pokemons" element={<PokemonsApi />} />
         </Routes>
       </main>
