@@ -3,7 +3,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 function PokemonsApiCards({ pokemon, loading }) {
-  console.log(pokemon);
+  //console.log(pokemon);
 
   return (
     <>
@@ -13,7 +13,7 @@ function PokemonsApiCards({ pokemon, loading }) {
         pokemon.map((item) => {
           return (
             <>
-              <div className="col-12 col-lg-4 col-xl-3 mb-4">
+              <div className="col-12 col-lg-4 col-xl-3 mb-4" key={item.id}>
                 <div className="pokemon-card lightgray-bg p-0 m-1">
                   <div className="header-card blue-bg p-1">
                     <h2 className="text-white">{item.name}</h2>
