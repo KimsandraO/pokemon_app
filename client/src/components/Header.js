@@ -12,7 +12,7 @@ class Header extends Component {
       <>
         <div id="main-header" container>
           <Link to="/">
-          <img id="main-logo" src={logo} alt="logo" />
+            <img id="main-logo" src={logo} alt="logo" />
           </Link>
           <i className="fab fa-react"></i>
           <div className="menu-icon" onClick={this.handleClick}>
@@ -22,7 +22,7 @@ class Header extends Component {
           </div>
           <nav id="main-nav">
             <NavLink to="/">HOME</NavLink>
-            <NavLink to="/OurPokemons">OUR POKEMONS</NavLink>
+
             <NavLink to="/pokemons/new">ADD POKEMON</NavLink>
             <NavLink to="/Pokemons/api/pokemons">PUBLIC POKEMONS</NavLink>
           </nav>
