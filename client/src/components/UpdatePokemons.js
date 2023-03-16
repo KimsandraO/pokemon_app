@@ -7,6 +7,16 @@ function UpdatePokemons() {
   const { id } = useParams();
   const navigate = useNavigate();
 
+  const [name, setName] = useState("");
+  const [description, setDescription] = useState("");
+  const [abilities, setAbilities] = useState([]);
+  const [weakness, setWeakness] = useState([]);
+  const [height, setHeight] = useState("");
+  const [weight, setWeight] = useState("");
+  const [image, setImage] = useState();
+  const [gender, setGender] = useState("");
+  const [type, setType] = useState([]);
+
   const [pokemon, setPokemon] = useState({
     name: "",
     abilities: "",
@@ -19,6 +29,18 @@ function UpdatePokemons() {
     type: "",
   });
 
+  const [error, setError] = useState({
+    name,
+    image,
+    abilities,
+    description,
+    weakness,
+    height,
+    weight,
+
+    gender,
+    type,
+  });
   useEffect(() => {
     axios
       .get(`${process.env.REACT_APP_SERVER_BASE_URL}/api/pokemons/${id}`)
@@ -40,7 +62,7 @@ function UpdatePokemons() {
         pokemon
       )
       .then((res) => navigate(`/pokemons/${id}`))
-      .catch((e) => console.log(e));
+      .catch((e) => setError(e.response.data.errors));
   };
 
   return (
@@ -53,6 +75,9 @@ function UpdatePokemons() {
           <div className="col-12 col-md-6 col-lg-6 gray-color">
             <div className="mb-3 p-5">
               <label className="form-label">Name OF YOUR POKEMON</label>
+              {error.name && (
+                <p className="text-danger h6">{error.name.message}</p>
+              )}
               <input
                 type="text"
                 value={pokemon.name}
@@ -62,6 +87,9 @@ function UpdatePokemons() {
                 name="name"
               />
               <label className="form-label mt-3">IMAGE</label>
+              {error.image && (
+                <p className="text-danger h6">{error.image.message}</p>
+              )}
               <input
                 type="text"
                 value={pokemon.image}
@@ -71,6 +99,9 @@ function UpdatePokemons() {
                 name="image"
               />
               <label class="form-label mt-3">DESCRIPTION</label>
+              {error.description && (
+                <p className="text-danger h6">{error.description.message}</p>
+              )}
               <textarea
                 value={pokemon.description}
                 className="form-control form-textarea"
@@ -85,6 +116,9 @@ function UpdatePokemons() {
               <div className="col">
                 <div class="p-1 ms-5 me-5">
                   <label class="form-label">HEIGHT</label>
+                  {error.height && (
+                    <p className="text-danger h6">{error.height.message}</p>
+                  )}
                   <input
                     type="text"
                     value={pokemon.height}
@@ -98,6 +132,9 @@ function UpdatePokemons() {
               <div className="col">
                 <div className="p-1 ms-5 me-5">
                   <label className="form-label">WEIGHT</label>
+                  {error.weight && (
+                    <p className="text-danger h6">{error.weight.message}</p>
+                  )}
                   <input
                     type="text"
                     value={pokemon.weight}
@@ -141,6 +178,9 @@ function UpdatePokemons() {
               <div className="col">
                 <div className="p-1 ms-5 me-5">
                   <label className="form-label">GENDER</label>
+                  {error.gender && (
+                    <p className="text-danger h6">{error.gender.message}</p>
+                  )}
                   <input
                     type="text"
                     value={pokemon.gender}

@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 
 function AddForm() {
   const navigate = useNavigate();
+
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [abilities, setAbilities] = useState([]);
@@ -14,6 +15,19 @@ function AddForm() {
   const [image, setImage] = useState();
   const [gender, setGender] = useState("");
   const [type, setType] = useState([]);
+
+  const [error, setError] = useState({
+    name,
+    image,
+    abilities,
+    description,
+    weakness,
+    height,
+    weight,
+
+    gender,
+    type,
+  });
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -31,8 +45,9 @@ function AddForm() {
         type,
       })
       .then((res) => navigate("/"))
-      .catch((e) => console.log(e));
+      .catch((e) => setError(e.response.data.errors));
   };
+
   return (
     <div className="container mb-5 mt-5">
       <div className="row">
@@ -43,6 +58,9 @@ function AddForm() {
           <div className="col-12 col-md-6 col-lg-6 gray-color">
             <div className="mb-3 p-5">
               <label className="form-label">Name OF YOUR POKEMON</label>
+              {error.name && (
+                <p className="text-danger h6">{error.name.message}</p>
+              )}
               <input
                 type="text"
                 value={name}
@@ -51,6 +69,9 @@ function AddForm() {
                 onChange={(e) => setName(e.target.value)}
               />
               <label class="form-label mt-3">IMAGE</label>
+              {error.image && (
+                <p className="text-danger h6">{error.image.message}</p>
+              )}
               <input
                 type="text"
                 value={image}
@@ -59,6 +80,9 @@ function AddForm() {
                 onChange={(e) => setImage(e.target.value)}
               />
               <label class="form-label mt-3">DESCRIPTION</label>
+              {error.description && (
+                <p className="text-danger h6">{error.description.message}</p>
+              )}
               <textarea
                 value={description}
                 className="form-control form-textarea"
@@ -72,6 +96,9 @@ function AddForm() {
               <div className="col">
                 <div className="p-1 ms-5 me-5">
                   <label className="form-label">HEIGHT</label>
+                  {error.height && (
+                    <p className="text-danger h6">{error.height.message}</p>
+                  )}
                   <input
                     type="text"
                     value={height}
@@ -84,6 +111,9 @@ function AddForm() {
               <div className="col">
                 <div className="p-1 ms-5 me-5">
                   <label className="form-label">WEIGHT</label>
+                  {error.weight && (
+                    <p className="text-danger h6">{error.weight.message}</p>
+                  )}
                   <input
                     type="text"
                     value={weight}
@@ -98,6 +128,9 @@ function AddForm() {
               <div className="col">
                 <div className="p-5">
                   <label className="form-label">ABILITIES</label>
+                  {error.abilities && (
+                    <p className="text-danger h6">{error.abilities.message}</p>
+                  )}
                   <input
                     type="text"
                     value={abilities}
@@ -110,6 +143,9 @@ function AddForm() {
               <div className="col">
                 <div className="p-5">
                   <label className="form-label">WEAKNESS</label>
+                  {error.weakness && (
+                    <p className="text-danger h6">{error.weakness.message}</p>
+                  )}
                   <input
                     type="text"
                     value={weakness}
@@ -124,6 +160,9 @@ function AddForm() {
               <div className="col">
                 <div className="p-1 ms-5 me-5">
                   <label className="form-label">GENDER</label>
+                  {error.gender && (
+                    <p className="text-danger h6">{error.gender.message}</p>
+                  )}
                   <input
                     type="text"
                     value={gender}
@@ -136,6 +175,9 @@ function AddForm() {
               <div className="col">
                 <div className="p-1 ms-5 me-5">
                   <label className="form-label">TYPE</label>
+                  {error.type && (
+                    <p className="text-danger">{error.type.message}</p>
+                  )}
                   <input
                     type="text"
                     value={type}
