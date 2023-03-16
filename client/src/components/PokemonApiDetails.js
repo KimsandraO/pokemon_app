@@ -97,7 +97,7 @@ function PokemonApiDetails() {
                     </div>
                     <div className="buttons">
                       <Link
-                        to="/pokemons/publicPokemon"
+                        to="/pokemons/api/pokemons"
                         className="btn btn-secondary rounded-pill m-4 mt-5"
                         type="button"
                       >
