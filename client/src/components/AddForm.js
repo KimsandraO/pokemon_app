@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 
 function AddForm() {
   const navigate = useNavigate();
+
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [abilities, setAbilities] = useState([]);
@@ -14,6 +15,19 @@ function AddForm() {
   const [image, setImage] = useState();
   const [gender, setGender] = useState("");
   const [type, setType] = useState([]);
+
+  const [error, setError] = useState({
+    name,
+    image,
+    abilities,
+    description,
+    weakness,
+    height,
+    weight,
+
+    gender,
+    type,
+  });
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -31,63 +45,79 @@ function AddForm() {
         type,
       })
       .then((res) => navigate("/"))
-      .catch((e) => console.log(e));
+      .catch((e) => setError(e.response.data.errors));
   };
+
   return (
-    <div class="container mb-5 mt-5">
-      <div class="row">
-        <div class="col-sm-12 blue-color">ADD NEW POKEMON</div>
+    <div className="container mb-5 mt-5">
+      <div className="row">
+        <div className="col-sm-12 blue-color">ADD NEW POKEMON</div>
       </div>
       <form onSubmit={handleSubmit}>
-        <div class="row">
-          <div class="col-12 col-md-6 col-lg-6 gray-color">
-            <div class="mb-3 p-5">
-              <label class="form-label">Name OF YOUR POKEMON</label>
+        <div className="row">
+          <div className="col-12 col-md-6 col-lg-6 gray-color">
+            <div className="mb-3 p-5">
+              <label className="form-label">Name OF YOUR POKEMON</label>
+              {error.name && (
+                <p className="text-danger h6">{error.name.message}</p>
+              )}
               <input
                 type="text"
                 value={name}
-                class="form-control rounded-pill p-2 border border-primary"
+                className="form-control rounded-pill p-2 border border-primary"
                 placeholder="Pokemon Name..."
                 onChange={(e) => setName(e.target.value)}
               />
               <label class="form-label mt-3">IMAGE</label>
+              {error.image && (
+                <p className="text-danger h6">{error.image.message}</p>
+              )}
               <input
                 type="text"
                 value={image}
-                class="form-control rounded-pill p-2 border border-primary"
+                className="form-control rounded-pill p-2 border border-primary"
                 placeholder="Image Link..."
                 onChange={(e) => setImage(e.target.value)}
               />
               <label class="form-label mt-3">DESCRIPTION</label>
+              {error.description && (
+                <p className="text-danger h6">{error.description.message}</p>
+              )}
               <textarea
                 value={description}
-                class="form-control form-textarea"
+                className="form-control form-textarea"
                 placeholder="Leave a comment here..."
                 onChange={(e) => setDescription(e.target.value)}
               ></textarea>
             </div>
           </div>
-          <div class="col-12 col-md-6 col-lg-6 yellow-color">
+          <div className="col-12 col-md-6 col-lg-6 yellow-color">
             <div className="row mt-5">
               <div className="col">
-                <div class="p-1 ms-5 me-5">
-                  <label class="form-label">HEIGHT</label>
+                <div className="p-1 ms-5 me-5">
+                  <label className="form-label">HEIGHT</label>
+                  {error.height && (
+                    <p className="text-danger h6">{error.height.message}</p>
+                  )}
                   <input
                     type="text"
                     value={height}
-                    class="form-control rounded-pill p-2 border border-primary"
+                    className="form-control rounded-pill p-2 border border-primary"
                     placeholder="ex: 2' 00"
                     onChange={(e) => setHeight(e.target.value)}
                   />
                 </div>
               </div>
               <div className="col">
-                <div class="p-1 ms-5 me-5">
-                  <label class="form-label">WEIGHT</label>
+                <div className="p-1 ms-5 me-5">
+                  <label className="form-label">WEIGHT</label>
+                  {error.weight && (
+                    <p className="text-danger h6">{error.weight.message}</p>
+                  )}
                   <input
                     type="text"
                     value={weight}
-                    class="form-control rounded-pill p-2 border border-primary"
+                    className="form-control rounded-pill p-2 border border-primary"
                     placeholder="ex: 18,7"
                     onChange={(e) => setWeight(e.target.value)}
                   />
@@ -96,24 +126,30 @@ function AddForm() {
             </div>
             <div className="row">
               <div className="col">
-                <div class="p-5">
-                  <label class="form-label">ABILITIES</label>
+                <div className="p-5">
+                  <label className="form-label">ABILITIES</label>
+                  {error.abilities && (
+                    <p className="text-danger h6">{error.abilities.message}</p>
+                  )}
                   <input
                     type="text"
                     value={abilities}
-                    class="form-control rounded-pill p-2 border border-primary"
+                    className="form-control rounded-pill p-2 border border-primary"
                     placeholder="type one or more"
                     onChange={(e) => setAbilities(e.target.value)}
                   />
                 </div>
               </div>
               <div className="col">
-                <div class="p-5">
-                  <label class="form-label">WEAKNESS</label>
+                <div className="p-5">
+                  <label className="form-label">WEAKNESS</label>
+                  {error.weakness && (
+                    <p className="text-danger h6">{error.weakness.message}</p>
+                  )}
                   <input
                     type="text"
                     value={weakness}
-                    class="form-control rounded-pill p-2 border border-primary"
+                    className="form-control rounded-pill p-2 border border-primary"
                     placeholder="type one or more"
                     onChange={(e) => setWeakness(e.target.value)}
                   />
@@ -122,34 +158,44 @@ function AddForm() {
             </div>
             <div className="row">
               <div className="col">
-                <div class="p-1 ms-5 me-5">
-                  <label class="form-label">GENDER</label>
+                <div className="p-1 ms-5 me-5">
+                  <label className="form-label">GENDER</label>
+                  {error.gender && (
+                    <p className="text-danger h6">{error.gender.message}</p>
+                  )}
                   <input
                     type="text"
                     value={gender}
-                    class="form-control rounded-pill p-2 border border-primary"
+                    className="form-control rounded-pill p-2 border border-primary"
                     placeholder="type one or more"
                     onChange={(e) => setGender(e.target.value)}
                   />
                 </div>
               </div>
               <div className="col">
-                <div class="p-1 ms-5 me-5">
-                  <label class="form-label">TYPE</label>
+                <div className="p-1 ms-5 me-5">
+                  <label className="form-label">TYPE</label>
+                  {error.type && (
+                    <p className="text-danger">{error.type.message}</p>
+                  )}
                   <input
                     type="text"
                     value={type}
-                    class="form-control rounded-pill p-2 border border-primary"
+                    className="form-control rounded-pill p-2 border border-primary"
                     placeholder="type one or more"
                     onChange={(e) => setType(e.target.value)}
                   />
                 </div>
               </div>
             </div>
-            <div class="row mt-5 mb-4">
+            <div className="row mt-5 mb-4">
               <div className="col-5"></div>
               <div className="col-2">
-                <button class="btn btn-primary" id="addform-btn" type="submit">
+                <button
+                  className="btn btn-primary"
+                  id="addform-btn"
+                  type="submit"
+                >
                   SUBMIT
                 </button>
               </div>
@@ -158,7 +204,7 @@ function AddForm() {
           </div>
         </div>
       </form>
-      <div class="row">
+      <div className="row">
         <div class="col-sm-12 blue1-color mb-3"></div>
       </div>
     </div>

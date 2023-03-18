@@ -1,12 +1,14 @@
 const Pokemon = require("../models/pokemon");
-const ErrorResponse = require("../utils/errorResponse");
+//const ErrorResponse = require("../utils/errorResponse");
 
 const createPokemon = async (req, res, next) => {
   try {
     const newPokemon = await Pokemon.create(req.body);
     res.status(201).json(newPokemon);
   } catch (error) {
-    next(new ErrorResponse(error));
+    next(
+      res.status(500).json({ message: error.message, errors: error.errors })
+    );
   }
 };
 
@@ -15,7 +17,9 @@ const getAllPokemon = async (req, res, next) => {
     const pokemons = await Pokemon.find();
     res.json(pokemons);
   } catch (error) {
-    next(new ErrorResponse(error));
+    next(
+      res.status(500).json({ message: error.message, errors: error.errors })
+    );
   }
 };
 
@@ -37,7 +41,9 @@ const updatePokemon = async (req, res, next) => {
 
     res.json(updatedPokemon);
   } catch (error) {
-    next(new ErrorResponse(error));
+    next(
+      res.status(500).json({ message: error.message, errors: error.errors })
+    );
   }
 };
 
@@ -49,7 +55,9 @@ const deletePokemon = async (req, res, next) => {
 
     res.json(deletedPokemon);
   } catch (error) {
-    next(new ErrorResponse(error));
+    next(
+      res.status(500).json({ message: error.message, errors: error.errors })
+    );
   }
 };
 

@@ -1,8 +1,6 @@
 import React, { Component } from "react";
 import logo from "../Images/pokemon-logo.png";
 import { Link, NavLink } from "react-router-dom";
-import Button from "react-bootstrap/Button";
-import InputGroup from "react-bootstrap/InputGroup";
 
 class Header extends Component {
   state = { clicked: false };
@@ -10,7 +8,7 @@ class Header extends Component {
   render() {
     return (
       <>
-        <div id="main-header" container>
+        <div id="main-header">
           <Link to="/">
             <img id="main-logo" src={logo} alt="logo" />
           </Link>

@@ -24,7 +24,7 @@ function PokemonsApi() {
       const result = await axios.get(item.url);
       setPokemons((state) => {
         state = [...state, result.data];
-        console.log(state);
+        // console.log(state);
         state.sort((a, b) => (a.id > b.id ? 1 : -1));
         return state;
       });

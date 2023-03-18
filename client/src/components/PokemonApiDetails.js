@@ -14,7 +14,7 @@ function PokemonApiDetails() {
       .then((res) => setPokemon(res.data))
       .catch((e) => console.log(e));
   }, [id]);
-  console.log(pokemon);
+  //console.log(pokemon);
   return (
     pokemon && (
       <>
@@ -51,10 +51,10 @@ function PokemonApiDetails() {
                       <div className="row">
                         <div className="col-12 col-lg-6">
                           <h4>Abilities</h4>
-                          {pokemon.abilities.map((poke) => {
+                          {pokemon.abilities.map((poke, index) => {
                             return (
                               <>
-                                <p className="text-start">
+                                <p className="text-start" key={index}>
                                   <span>{poke.ability.name}</span>
                                 </p>
                               </>
@@ -63,10 +63,10 @@ function PokemonApiDetails() {
                         </div>
                         <div className="col-12 col-lg-6">
                           <h4>Weakness</h4>
-                          {pokemon.stats.map((poke) => {
+                          {pokemon.stats.map((poke, index) => {
                             return (
                               <>
-                                <p className="text-start">
+                                <p className="text-start" key={index}>
                                   <span>
                                     {poke.stat.name}:{poke.base_stat}
                                   </span>
@@ -83,10 +83,10 @@ function PokemonApiDetails() {
                       <div className="col-6 text-center">
                         <h4>Type</h4>
                         <div className="text-center type-pokemon">
-                          {pokemon.types?.map((e) => {
+                          {pokemon.types?.map((e, index) => {
                             return (
                               <>
-                                <p className="text-start">
+                                <p className="text-start" key={index}>
                                   <span>{e.type.name}</span>
                                 </p>
                               </>
