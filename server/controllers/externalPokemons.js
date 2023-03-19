@@ -16,8 +16,6 @@ const getExtPokemons = async (req, res) => {
       urls.map((url) => fetch(url).then((response) => response.json()))
     );
     const pokemons = urlPokemons.map((urlPokemon) => {
-      // console.log(rawPokemon);
-
       return {
         name: urlPokemon.name,
         image: urlPokemon.sprites.other["official-artwork"].front_default,
