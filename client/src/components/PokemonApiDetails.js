@@ -1,20 +1,21 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import axios from "axios";
+import axios from "../axiosInstance";
 import { useParams, navigate, useNavigate, Link } from "react-router-dom";
+import PokemonsApi from "./PokemonsApi";
 
 function PokemonApiDetails() {
-  const { id } = useParams();
+  const { _id } = useParams();
   const navigate = useNavigate();
   const [pokemon, setPokemon] = useState(null);
-
+  console.log("gggggg", _id);
   useEffect(() => {
     axios
-      .get(`https://pokeapi.co/api/v2/pokemon/${id}`)
+      .get(`https://pokeapi.co/api/v2/pokemon/${_id}`)
       .then((res) => setPokemon(res.data))
       .catch((e) => console.log(e));
-  }, [id]);
-  //console.log(pokemon);
+  }, []);
+  //console.log(pokemons);
   return (
     pokemon && (
       <>
@@ -28,7 +29,7 @@ function PokemonApiDetails() {
                 <div className="row">
                   <div className="col-6 lightgray-bg">
                     <img
-                      src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${id}.svg`}
+                      src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${_id}.svg`}
                       alt={pokemon?.name}
                       className="img-fluid p-5"
                     />
@@ -97,7 +98,7 @@ function PokemonApiDetails() {
                     </div>
                     <div className="buttons">
                       <Link
-                        to="/pokemons/api/pokemons"
+                        to="/api/extpokemons"
                         className="btn btn-secondary rounded-pill m-4 mt-5"
                         type="button"
                       >
