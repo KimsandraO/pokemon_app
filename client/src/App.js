@@ -29,9 +29,9 @@ function App() {
             element={<PokemonSearchResults />}
           />
           <Route path="/pokemons/new" element={<AddForm />} />
-          <Route path="/pokemons/api/pokemons" element={<PokemonsApi />} />
+          <Route path="/api/extpokemons" element={<PokemonsApi />} />
           <Route
-            path="/pokemons/publicPokemon/:id"
+            path="/api/extpokemons/:_id"
             element={<PokemonsApiDetails />}
           />
           <Route path="/pokemons/:id" element={<PokemonDetails />} />

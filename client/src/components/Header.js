@@ -22,7 +22,7 @@ class Header extends Component {
             <NavLink to="/">HOME</NavLink>
 
             <NavLink to="/pokemons/new">ADD POKEMON</NavLink>
-            <NavLink to="/Pokemons/api/pokemons">PUBLIC POKEMONS</NavLink>
+            <NavLink to="/api/extpokemons">PUBLIC POKEMONS</NavLink>
           </nav>
         </div>
       </>
