@@ -28,7 +28,7 @@ function PokemonDetails() {
 
   return (
     <div className="container" key={pokemon?._id}>
-      <div className="pokemon-card col-12 lightgray-bg p-0 mt-3 mb-5">
+      <div className="pokemon-card col-12 lightgray-bg p-0 mt-5 mb-5">
         <div className="header-card blue-bg p-1">
           <h2 className="text-white">{pokemon?.name}</h2>
         </div>
@@ -85,7 +85,7 @@ function PokemonDetails() {
                   </div>
                 </div>
 
-                <div className="row type-wrapper">
+                <div className="row type-wrapper mb-4">
                   <div className="col-6 text-center">
                     <h4>Type</h4>
                     <div className="text-center type-pokemon">
@@ -105,7 +105,7 @@ function PokemonDetails() {
                     </p>
                   </div>
                   <div className="col-12 col-lg-6">
-                    <h4 style={{ color: "#FF0000" }}>Updated At:</h4>
+                    <h4 style={{ color: "#FF0000" }}>Last Update At:</h4>
                     <p className="text-start">
                       <span>
                         {moment(pokemon?.updatedAt).format(

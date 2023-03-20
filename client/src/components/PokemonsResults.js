@@ -9,7 +9,7 @@ function PokemonsResults({ userData }) {
   const [pokemons, setPokemons] = useState([]);
 
   const [isLoadingPokemons, setIsLoadingPokemons] = useState(false);
-  const [limit, setLimit] = useState(4);
+  const [limit, setLimit] = useState(8);
   const [pageCount, setPageCount] = useState(1);
   const currentPage = useRef();
 
