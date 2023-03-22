@@ -20,7 +20,7 @@ function PokemonApiDetails() {
     pokemon && (
       <>
         <div className="container" key={pokemon?.id}>
-          <div className="pokemon-card col-12 lightgray-bg p-0 mt-3 mb-5">
+          <div className="pokemon-card col-12 lightgray-bg p-0 mt-5 mb-5">
             <div className="header-card blue-bg p-1">
               <h2 className="text-white">{pokemon?.name}</h2>
             </div>

@@ -20,7 +20,7 @@ const Search = () => {
 
   return (
     <div className="blue-bg">
-      <div className="search-bar container">
+      <div className="search-bar container p-3">
         <div className="search-start">
           <h3 className="text-white">Find a Pokemón</h3>
           <form onSubmit={handleSearch} id="search-form">
@@ -44,11 +44,11 @@ const Search = () => {
             </div>
           </form>
         </div>
-        <div className="search-end">
+        {/* <div className="search-end">
           <button className="btn btn-warning rounded-pill m-3">
             <span className="material-symbols-sharp">sort</span> Sort Results
           </button>
-        </div>
+        </div> */}
       </div>
     </div>
   );
