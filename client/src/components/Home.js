@@ -1,13 +1,13 @@
 import React from "react";
-import PokemonResults from "../components/PokemonsResults";
+import PokemonsResults from "../components/PokemonsResults";
 import Search from "../components/Search";
 
 function Home() {
-  return <div>
-
-
-          <PokemonResults />
-        </div>;
+  return (
+    <div>
+      <PokemonsResults />
+    </div>
+  );
 }
 
 export default Home;
