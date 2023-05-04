@@ -14,13 +14,16 @@ function PokemonsApiCards({ pokemons, loading }) {
 
   return (
     <>
+          <h1 className="color-blue roboto fs-2 m-3">
+            Pokemon API Resulsts
+          </h1>
       {loading ? (
         <h1>Loading...</h1>
       ) : (
         pokemons?.map((item) => {
           return (
             <>
-              <div className="col-12 col-lg-4 col-xl-3 mb-4" key={item._id}>
+              <div className="col-12 col-lg-4 col-xl-3 mb-4 " key={item._id}>
                 <div className="pokemon-card lightgray-bg p-0 m-1">
                   <div className="header-card blue-bg p-1">
                     <h2 className="text-white">{item.name}</h2>
